@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java2e.martin.erd.mapper.DbVersionMapper">
+    <delete id="rebaseline">
+        delete from db_version
+        where
+        db_version != 'v0.0.0'
+        and project_id=#{projectId}
+    </delete>
+
+    <select id="dbversion" resultType="java.lang.String">
+        SELECT DB_VERSION
+        FROM DB_VERSION
+        WHERE
+        DB_VERSION=(SELECT max(DB_VERSION) FROM DB_VERSION where project_id=#{projectId})
+        and project_id=#{projectId}
+    </select>
+</mapper>

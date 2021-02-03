@@ -1,0 +1,83 @@
+
+delete from sys_permission;
+delete from sys_permission_role;
+delete from sys_role_user;
+delete from sys_role;
+delete from sys_user;
+
+INSERT INTO erd.sys_permission (id,name,description,url,pid) VALUES 
+('d96ea750-2ed0-11eb-b763-025041000001','ROLE_SYS_USER_ADD','USER_ADD','/sysUser/add',NULL)
+,('d9724720-2ed0-11eb-b763-025041000001','ROLE_SYS_USER_DELETE','USER_DELETE','/sysUser/delete',NULL)
+,('d9773434-2ed0-11eb-b763-025041000001','ROLE_SYS_USER_UPDATE','USER_UPDATE','/sysUser/update',NULL)
+,('d97bfd05-2ed0-11eb-b763-025041000001','ROLE_SYS_USER_GET','USER_GET','/sysUser/get',NULL)
+,('d9854338-2ed0-11eb-b763-025041000001','ROLE_SYS_USER_PAGE','USER_PAGE','/sysUser/page',NULL)
+,('d989d558-2ed0-11eb-b763-025041000001','ROLE_SYS_USER_BIND_ROLE','USER_USER_BIND_ROLE','/sysUser/bindRole',NULL)
+,('d98d767d-2ed0-11eb-b763-025041000001','ROLE_SYS_ROLE_ADD','ROLE_ADD','/sysRole/add',NULL)
+,('d991dba5-2ed0-11eb-b763-025041000001','ROLE_SYS_ROLE_DELETE','ROLE_DELETE','/sysRole/delete',NULL)
+,('d9957eb6-2ed0-11eb-b763-025041000001','ROLE_SYS_ROLE_UPDATE','ROLE_UPDATE','/sysRole/update',NULL)
+,('d9996d40-2ed0-11eb-b763-025041000001','ROLE_SYS_ROLE_GET','ROLE_GET','/sysRole/get',NULL)
+;
+INSERT INTO erd.sys_permission (id,name,description,url,pid) VALUES 
+('d99c6041-2ed0-11eb-b763-025041000001','ROLE_SYS_ROLE_PAGE','ROLE_PAGE','/sysRole/page',NULL)
+,('d99fcdc4-2ed0-11eb-b763-025041000001','ROLE_SYS_ROLE_BIND_ROLE','ROLE_ROLE_BIND_ROLE','/sysRole/bindRole',NULL)
+,('d9a34a0d-2ed0-11eb-b763-025041000001','ROLE_SYS_ROLE_ALL','ROLE_ROLE_ALL','/sysRole/all',NULL)
+,('d9a6dee8-2ed0-11eb-b763-025041000001','ROLE_SYS_ROLE_SAVE_PERMISSION','ROLE_ROLE_SAVE_PERMISSION','/sysRole/savePermission',NULL)
+,('d9ab28a7-2ed0-11eb-b763-025041000001','ROLE_SYS_PERMISSION_ADD','PERMISSION_ADD','/sysPermission/add',NULL)
+,('d9b02755-2ed0-11eb-b763-025041000001','ROLE_SYS_PERMISSION_DELETE','PERMISSION_DELETE','/sysPermission/delete',NULL)
+,('d9b2fdff-2ed0-11eb-b763-025041000001','ROLE_SYS_PERMISSION_UPDATE','PERMISSION_UPDATE','/sysPermission/update',NULL)
+,('d9b69505-2ed0-11eb-b763-025041000001','ROLE_SYS_PERMISSION_GET','PERMISSION_GET','/sysPermission/get',NULL)
+,('d9b956f4-2ed0-11eb-b763-025041000001','ROLE_SYS_PERMISSION_PAGE','PERMISSION_PAGE','/sysPermission/page',NULL)
+,('d9bd0c7c-2ed0-11eb-b763-025041000001','ROLE_SYS_PERMISSION_FETCH_PERMISSION','PERMISSION_FETCH_PERMISSION','/sysPermission/fetchPermission',NULL)
+;INSERT INTO erd.sys_permission_role (id,role_id,permission_id) VALUES 
+('6cdeca87-2ee9-11eb-b763-025041000001','1','d9ab28a7-2ed0-11eb-b763-025041000001')
+,('6cded495-2ee9-11eb-b763-025041000001','1','d9b02755-2ed0-11eb-b763-025041000001')
+,('6cded4fe-2ee9-11eb-b763-025041000001','1','d9bd0c7c-2ed0-11eb-b763-025041000001')
+,('6cded52d-2ee9-11eb-b763-025041000001','1','d9b69505-2ed0-11eb-b763-025041000001')
+,('6cded557-2ee9-11eb-b763-025041000001','1','d9b956f4-2ed0-11eb-b763-025041000001')
+,('6cded577-2ee9-11eb-b763-025041000001','1','d9b2fdff-2ed0-11eb-b763-025041000001')
+,('6cded598-2ee9-11eb-b763-025041000001','1','d98d767d-2ed0-11eb-b763-025041000001')
+,('6cded5ba-2ee9-11eb-b763-025041000001','1','d9a34a0d-2ed0-11eb-b763-025041000001')
+,('6cded5db-2ee9-11eb-b763-025041000001','1','d99fcdc4-2ed0-11eb-b763-025041000001')
+,('6cded5fe-2ee9-11eb-b763-025041000001','1','d991dba5-2ed0-11eb-b763-025041000001')
+;
+INSERT INTO erd.sys_permission_role (id,role_id,permission_id) VALUES 
+('6cded61c-2ee9-11eb-b763-025041000001','1','d9996d40-2ed0-11eb-b763-025041000001')
+,('6cded63a-2ee9-11eb-b763-025041000001','1','d99c6041-2ed0-11eb-b763-025041000001')
+,('6cded658-2ee9-11eb-b763-025041000001','1','d9a6dee8-2ed0-11eb-b763-025041000001')
+,('6cded676-2ee9-11eb-b763-025041000001','1','d9957eb6-2ed0-11eb-b763-025041000001')
+,('6cded693-2ee9-11eb-b763-025041000001','1','d96ea750-2ed0-11eb-b763-025041000001')
+,('6cded6b1-2ee9-11eb-b763-025041000001','1','d989d558-2ed0-11eb-b763-025041000001')
+,('6cded6cf-2ee9-11eb-b763-025041000001','1','d9724720-2ed0-11eb-b763-025041000001')
+,('6cded6ed-2ee9-11eb-b763-025041000001','1','d9854338-2ed0-11eb-b763-025041000001')
+,('6cded70c-2ee9-11eb-b763-025041000001','1','d9773434-2ed0-11eb-b763-025041000001')
+,('6cded72e-2ee9-11eb-b763-025041000001','1','d97bfd05-2ed0-11eb-b763-025041000001')
+;
+INSERT INTO erd.sys_permission_role (id,role_id,permission_id) VALUES 
+('76632cf6-2eeb-11eb-b763-025041000001','2','d9996d40-2ed0-11eb-b763-025041000001')
+,('76639ec2-2eeb-11eb-b763-025041000001','2','d9b956f4-2ed0-11eb-b763-025041000001')
+,('76639f20-2eeb-11eb-b763-025041000001','2','d9854338-2ed0-11eb-b763-025041000001')
+,('76639f4c-2eeb-11eb-b763-025041000001','2','d97bfd05-2ed0-11eb-b763-025041000001')
+,('76639f92-2eeb-11eb-b763-025041000001','2','d99c6041-2ed0-11eb-b763-025041000001')
+,('76639fbb-2eeb-11eb-b763-025041000001','2','d9b69505-2ed0-11eb-b763-025041000001')
+,('76639fde-2eeb-11eb-b763-025041000001','2','d9a34a0d-2ed0-11eb-b763-025041000001')
+,('7a81b30f-2eeb-11eb-b763-025041000001','46614245-7e7f-4dff-83c7-48878eca10a8','d9b956f4-2ed0-11eb-b763-025041000001')
+,('7a81b422-2eeb-11eb-b763-025041000001','46614245-7e7f-4dff-83c7-48878eca10a8','d99c6041-2ed0-11eb-b763-025041000001')
+,('7a81b45d-2eeb-11eb-b763-025041000001','46614245-7e7f-4dff-83c7-48878eca10a8','d9854338-2ed0-11eb-b763-025041000001')
+;
+INSERT INTO erd.sys_permission_role (id,role_id,permission_id) VALUES 
+('7a81b487-2eeb-11eb-b763-025041000001','46614245-7e7f-4dff-83c7-48878eca10a8','d9a34a0d-2ed0-11eb-b763-025041000001')
+;INSERT INTO erd.sys_role (id,name) VALUES 
+('1','ADMIN')
+,('2','DBA')
+,('46614245-7e7f-4dff-83c7-48878eca10a8','DEV')
+;INSERT INTO erd.sys_role_user (id,sys_user_id,sys_role_id) VALUES 
+('ada85dc5-2e2c-11eb-b763-025041000001','2','2')
+,('f9196740-2ece-11eb-b763-025041000001','1','1')
+,('f94a9c26-2e2d-11eb-b763-025041000001','7154fe03-b09f-474b-876c-8d1a5330fd4a','46614245-7e7f-4dff-83c7-48878eca10a8')
+;INSERT INTO erd.sys_user (id,username,password) VALUES 
+('1','admin','{noop}admin')
+,('2','dba','{noop}dba')
+,('7154fe03-b09f-474b-876c-8d1a5330fd4a','dev','{noop}dev')
+,('77486461-55d3-48ae-be11-ef45c9be93cf','erd2','{noop}erd')
+,('97700dd8-3c7c-4264-951e-99dea14daf7e','erd1','{noop}erd')
+;

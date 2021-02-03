@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java2e.martin.erd.mapper.SysUserMapper">
+    <insert id="bindRole">
+        insert into sys_role_user (id, sys_user_id, sys_role_id) values (uuid(),#{userId},#{roleId})
+    </insert>
+    <delete id="deleteRole">
+        delete from sys_role_user where sys_user_id=#{userId}
+    </delete>
+
+    <select id="findByUserName" resultType="com.java2e.martin.erd.entity.SysUser">
+        select * from sys_user where username=#{username}
+    </select>
+    <select id="selectUserRoles" resultType="java.util.Map">
+        select su.*,sr.name as bindRole from sys_user su
+        left join sys_role_user sru on sru.sys_user_id=su.id
+        left join sys_role sr on sru.sys_role_id=sr.id
+        order by su.username
+    </select>
+</mapper>

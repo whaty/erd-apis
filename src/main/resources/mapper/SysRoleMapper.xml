@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java2e.martin.erd.mapper.SysRoleMapper">
+    <insert id="insertRolePermission">
+        insert into sys_permission_role(id, role_id, permission_id) VALUES
+        <foreach collection="checkedPermissions" item="item" separator=",">
+            (uuid(),#{roleId},#{item})
+        </foreach>
+    </insert>
+
+    <delete id="deletePermissionByRole">
+        delete from sys_permission_role where role_id=#{roleId}
+    </delete>
+
+    <select id="currentRole" resultType="java.lang.Object">
+        select sr.name from sys_user su
+        inner join sys_role_user sru on sru.sys_user_id=su.id
+        inner join sys_role sr on sru.sys_role_id=sr.id
+        where su.username=#{username}
+    </select>
+</mapper>
